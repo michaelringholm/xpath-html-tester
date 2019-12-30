@@ -1,0 +1,23 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "XPath Tester";
+}
+
+<h1 class="display-4">XPath Tester</h1>
+
+<div class="row">
+    <div class="col">
+    <input id="xpathExpr" type="text" style="width:100%;margin-top:3rem;font-size:2rem;font-family:Consolas,Arial" placeholder="//span[string-length(text()) > 1]" value="//span[string-length(text()) > 1]">
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <textarea id="html" style="width:100%;height:20rem;overflow:auto;margin-top:2rem;">@Model.SampleHtml</textarea>
+    </div>
+</div>    
+<div class="row">
+    <div class="col">
+        <textarea id="matchingNodes" style="width:100%;height:20rem;overflow:auto;margin-top:2rem;"></textarea>
+    </div>
+</div>  
