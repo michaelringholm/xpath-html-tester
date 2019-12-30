@@ -25,9 +25,12 @@ function XPathParser() {
             success: function(result) {
                 console.log("success");
                 $("#matchingNodes").text("");
-                result.nodes.forEach(function(item, index) {
+                /*result.nodes.forEach(function(item, index) {
                    $("#matchingNodes").append(item.innerHtml + "\n"); //.replace(/[\\r\\n]/g, "<br>"));
-                });
+                });*/
+                var source = $("#matchingNodesTemplate").html();
+                var htmlTemplate = Handlebars.compile(source);
+                $("#matchingNodes").html(htmlTemplate(result));                
             },
             contentType: "application/json"
         });

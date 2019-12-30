@@ -3,6 +3,10 @@
 @{
     ViewData["Title"] = "XPath Tester";
 }
+@section JavaScriptIncludes {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.5.3/handlebars.runtime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.5.3/handlebars.min.js"></script>
+}
 
 <h1 class="display-4">XPath Tester</h1>
 
@@ -15,9 +19,28 @@
     <div class="col">
         <textarea id="html" style="width:100%;height:20rem;overflow:auto;margin-top:2rem;">@Model.SampleHtml</textarea>
     </div>
-</div>    
-<div class="row">
+</div>
+<div class="row tableHeader" style="margin-top:3rem; height: 4rem; line-height:4rem;">
+    <div class="col" style="text-align:left;">Inner HTML</div>
+    <div class="col" style="text-align:right;">Line</div>
+    <div class="col" style="text-align:right;">Line Position</div>
+</div>
+<div class="row table">
     <div class="col">
-        <textarea id="matchingNodes" style="width:100%;height:20rem;overflow:auto;margin-top:2rem;"></textarea>
+        <div id="matchingNodes" style="width:100%;height:20rem;overflow:auto;margin-top:2rem;"></div>
     </div>
-</div>  
+</div>
+
+<!-- Templates -->
+
+<div id="matchingNodesTemplate" style="display:none;">
+{{#each nodes var="object"}}
+        <div class="col text-center" data-logical-name="{{logicalName}}">
+            <div class="row">
+                <div class="col" style="text-align:left;">{{innerHtml}}</div>
+                <div class="col" style="text-align:right;">{{line}}</div>
+                <div class="col" style="text-align:right;">{{linePosition}}</div>
+            </div>
+        </div>
+{{/each}}
+</div>
